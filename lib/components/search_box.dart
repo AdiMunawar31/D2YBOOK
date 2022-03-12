@@ -7,6 +7,7 @@ class SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: 24.0),
       width: double.infinity,
       padding: EdgeInsets.all(12.0),
       decoration: BoxDecoration(
@@ -15,10 +16,10 @@ class SearchBox extends StatelessWidget {
       child: Row(
         children: [
           Icon(CupertinoIcons.search),
-          SizedBox(width: 8),
+          SizedBox(width: 8.0),
           Text(
             'Search Book...',
-            style: TextStyle(color: Colors.grey, fontSize: 16),
+            style: TextStyle(color: Colors.grey, fontSize: 16.0),
           ),
         ],
       ),

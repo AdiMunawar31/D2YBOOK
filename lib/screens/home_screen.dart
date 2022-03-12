@@ -1,4 +1,7 @@
+import 'package:d2ybook/components/heading.dart';
+import 'package:d2ybook/components/newbook_list.dart';
 import 'package:d2ybook/components/search_box.dart';
+import 'package:d2ybook/components/topbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,21 +16,11 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(CupertinoIcons.line_horizontal_3_decrease, size: 32),
-                  Text(
-                    'D2YBOOK',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(CupertinoIcons.person_alt_circle_fill, size: 32),
-                ],
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              SearchBox()
+              TopBar(),
+              SearchBox(),
+              Heading(name: 'Neweast & Trending'),
+              NewBookList(),
+              Heading(name: 'Most Popular'),
             ],
           ),
         ),
