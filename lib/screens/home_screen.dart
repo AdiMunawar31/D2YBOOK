@@ -1,3 +1,4 @@
+import 'package:d2ybook/components/search_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,10 @@ class HomeScreen extends StatelessWidget {
                   Icon(CupertinoIcons.person_alt_circle_fill, size: 32),
                 ],
               ),
+              SizedBox(
+                height: 24,
+              ),
+              SearchBox()
             ],
           ),
         ),
