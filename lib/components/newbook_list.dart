@@ -1,6 +1,6 @@
+import 'package:d2ybook/models/books.dart';
+import 'package:d2ybook/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:d2ybook/models/newbook_model.dart';
-import 'package:d2ybook/screens/welcome_screen.dart';
 
 class NewBookList extends StatelessWidget {
   const NewBookList({Key? key}) : super(key: key);
@@ -12,58 +12,63 @@ class NewBookList extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
         itemBuilder: (context, index) {
-          final NewBook book = newBookList[index];
-          return InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return WelcomeScreen();
-              }));
-            },
-            child: SizedBox(
-              width: 130,
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 6,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: Image.asset(book.image),
+          final Books book = booksList[index];
+          return book.isPopular != true
+              ? InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return DetailScreen(book: book);
+                    }));
+                  },
+                  child: SizedBox(
+                    width: 130,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 6,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: Image.asset(book.image),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0, vertical: 4.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    book.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    book.author,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 12),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 4.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              book.name,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              book.author,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          );
+                  ),
+                )
+              : new Container();
         },
-        itemCount: newBookList.length,
+        itemCount: booksList.length,
       ),
     );
   }

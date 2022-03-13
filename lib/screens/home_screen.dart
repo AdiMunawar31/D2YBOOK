@@ -1,5 +1,6 @@
 import 'package:d2ybook/components/heading.dart';
 import 'package:d2ybook/components/newbook_list.dart';
+import 'package:d2ybook/components/popularbook_list.dart';
 import 'package:d2ybook/components/search_box.dart';
 import 'package:d2ybook/components/topbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,14 +15,17 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              TopBar(),
-              SearchBox(),
-              Heading(name: 'Neweast & Trending'),
-              NewBookList(),
-              Heading(name: 'Most Popular'),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                TopBar(),
+                SearchBox(),
+                Heading(name: 'Neweast & Trending'),
+                NewBookList(),
+                Heading(name: 'Most Popular'),
+                PopularBookList()
+              ],
+            ),
           ),
         ),
       ),
