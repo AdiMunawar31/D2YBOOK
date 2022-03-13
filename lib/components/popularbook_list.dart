@@ -70,7 +70,7 @@ class PopularBookList extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              '\$' + book.price,
+                              '\$ ${book.price}',
                               style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,

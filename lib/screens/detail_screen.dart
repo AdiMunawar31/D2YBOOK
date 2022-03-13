@@ -1,5 +1,6 @@
 import 'package:d2ybook/components/banner.dart';
 import 'package:d2ybook/models/books.dart';
+import 'package:d2ybook/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,65 @@ class DetailScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [BannerBook(book: book)],
+            children: [
+              BannerBook(book: book),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(book.name,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    SizedBox(height: 4.0),
+                    Text(book.author,
+                        style: TextStyle(
+                          fontSize: 16,
+                        )),
+                    SizedBox(height: 8.0),
+                    Text('\$ ${book.price}',
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red)),
+                    SizedBox(height: 16.0),
+                    Text('About the Book',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    SizedBox(height: 4.0),
+                    Text(book.description,
+                        style: TextStyle(fontSize: 16, color: Colors.black45)),
+                    SizedBox(height: 16.0),
+                    InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return HomeScreen();
+                          }));
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0))),
+                          child: Text(
+                            'Buy',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ))
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
