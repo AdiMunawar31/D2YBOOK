@@ -2,14 +2,14 @@ import 'package:d2ybook/models/books.dart';
 import 'package:d2ybook/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 
-class NewBookList extends StatefulWidget {
-  const NewBookList({Key? key}) : super(key: key);
+class PopularBookMobile extends StatefulWidget {
+  const PopularBookMobile({Key? key}) : super(key: key);
 
   @override
-  State<NewBookList> createState() => _NewBookListState();
+  State<PopularBookMobile> createState() => _PopularBookMobileState();
 }
 
-class _NewBookListState extends State<NewBookList> {
+class _PopularBookMobileState extends State<PopularBookMobile> {
   final _scrollController = ScrollController();
 
   @override
@@ -26,7 +26,7 @@ class _NewBookListState extends State<NewBookList> {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             final Books book = booksList[index];
-            return book.isPopular != true
+            return book.isPopular == true
                 ? InkWell(
                     onTap: () {
                       Navigator.push(context,
