@@ -66,7 +66,7 @@ class NewBookList extends StatelessWidget {
                     ),
                   ),
                 )
-              : new Container();
+              : Container();
         },
         itemCount: booksList.length,
       ),

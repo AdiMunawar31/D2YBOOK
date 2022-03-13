@@ -1,6 +1,5 @@
 import 'package:d2ybook/models/books.dart';
 import 'package:d2ybook/screens/detail_screen.dart';
-import 'package:d2ybook/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class PopularBookList extends StatelessWidget {
@@ -82,7 +81,7 @@ class PopularBookList extends StatelessWidget {
                     ],
                   ),
                 ))
-            : new Container();
+            : Container();
       },
       itemCount: booksList.length,
     );

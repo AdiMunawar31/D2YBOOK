@@ -1,13 +1,13 @@
 import 'package:d2ybook/components/banner.dart';
 import 'package:d2ybook/models/books.dart';
-import 'package:d2ybook/screens/home_screen.dart';
+import 'package:d2ybook/screens/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
   final Books book;
 
-  DetailScreen({required this.book});
+  const DetailScreen({Key? key, required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +49,16 @@ class DetailScreen extends StatelessWidget {
                         )),
                     SizedBox(height: 4.0),
                     Text(book.description,
-                        style: TextStyle(fontSize: 16, color: Colors.black45)),
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey,
+                            letterSpacing: 4.0)),
                     SizedBox(height: 16.0),
                     InkWell(
                         onTap: () {
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (context) {
-                            return HomeScreen();
+                            return WelcomeScreen();
                           }));
                         },
                         child: Container(
