@@ -50,7 +50,7 @@ class DetailMobile extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey[850],
-                            letterSpacing: 4.0)),
+                            letterSpacing: 1.2)),
                     SizedBox(height: 16.0),
                     InkWell(
                         onTap: () {
