@@ -1,4 +1,3 @@
-import 'package:d2ybook/screens/home_screen.dart';
 import 'package:d2ybook/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'D2YBOOK',
       theme: ThemeData(fontFamily: 'Urbanist'),
-      home: HomeScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

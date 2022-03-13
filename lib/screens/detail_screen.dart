@@ -1,4 +1,3 @@
-import 'package:d2ybook/components/banner.dart';
 import 'package:d2ybook/containers/detail_mobile.dart';
 import 'package:d2ybook/containers/detail_web.dart';
 import 'package:d2ybook/models/books.dart';

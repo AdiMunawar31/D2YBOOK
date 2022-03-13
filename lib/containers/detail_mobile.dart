@@ -1,6 +1,5 @@
 import 'package:d2ybook/components/banner.dart';
 import 'package:d2ybook/models/books.dart';
-import 'package:d2ybook/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class DetailMobile extends StatelessWidget {
@@ -50,14 +49,24 @@ class DetailMobile extends StatelessWidget {
                     Text(book.description,
                         style: TextStyle(
                             fontSize: 16,
-                            color: Colors.grey,
+                            color: Colors.grey[850],
                             letterSpacing: 4.0)),
                     SizedBox(height: 16.0),
                     InkWell(
                         onTap: () {
-                          Navigator.pushReplacement(context,
+                          Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return WelcomeScreen();
+                            return AlertDialog(
+                              actions: [
+                                ElevatedButton(
+                                    child: Text("OK"),
+                                    onPressed: () => Navigator.pop(context))
+                              ],
+                              content:
+                                  Text('The book was successfully purchased'),
+                              title: Text('Success',
+                                  style: TextStyle(fontSize: 24.0)),
+                            );
                           }));
                         },
                         child: Container(
