@@ -6,7 +6,7 @@ import 'package:d2ybook/components/save_button.dart';
 class BannerBook extends StatelessWidget {
   final Books book;
 
-  const BannerBook({Key? key, required this.book}) : super(key: key);
+  BannerBook({required this.book});
 
   @override
   Widget build(BuildContext context) {

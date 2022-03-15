@@ -1,11 +1,11 @@
-import 'package:d2ybook/components/banner.dart';
+import 'package:d2ybook/components/banner_book.dart';
 import 'package:d2ybook/models/books.dart';
 import 'package:flutter/material.dart';
 
 class DetailMobile extends StatelessWidget {
   final Books book;
 
-  const DetailMobile({Key? key, required this.book}) : super(key: key);
+  DetailMobile({required this.book});
 
   @override
   Widget build(BuildContext context) {
